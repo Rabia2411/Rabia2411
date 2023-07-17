@@ -1,0 +1,37 @@
+Activity 1
+
+
+EditText et1;
+    Button btn;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        et1=findViewById(R.id.et1);
+        btn=findViewById(R.id.btn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+String Username=et1.getText().toString();
+
+                Intent my=new Intent(MainActivity.this, MainActivity2.class);
+             my.putExtra("Data1",Username);
+//
+            startActivity(my);
+            finish();
+
+
+Activity 2
+
+
+TextView tV;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+        tV=findViewById(R.id.tV);
+
+        String Data1=getIntent().getExtras().getString("Data1");
+        tV.setText(Data1);
+    }
+}
